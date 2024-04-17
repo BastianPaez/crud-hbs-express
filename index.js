@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import routerCreate from './routes/create.route.js';
 import routerRead from './routes/read.route.js';
 
+
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
