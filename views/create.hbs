@@ -2,18 +2,21 @@
 
 <section class="d-flex">
     <article class="col-6">
-        <form action="">
+        <form action="/create" method="POST">
             <label class="form-label">Nombre del archivo</label>
             <input type="text" name="nombre" class="form-control w-25">
             <label class="form-label">Contenido</label>
             <textarea name="contenido" class="form-control w-75" cols="30" rows="10"></textarea>
-            <button class="btn btn-primary">Crear Archivo</button>
+            <button class="btn btn-primary" type="submit">Crear Archivo</button>
         </form>
     </article>
 
     <article class="col-6">
+        <h2>Lista de archivos</h2>
         <ul>
-            <li>xdxd.txt</li>
+            {{#each archivoJson}}
+                <li>{{this.nombre}}</li>
+            {{/each}}
         </ul>
     </article>
 </section>
