@@ -5,7 +5,7 @@
         <form action="/read" method="POST">
             <label class="form-label">Nombre del archivo</label>
             <select class="form-select w-75" aria-label="Default select" name="nombreArchivo">
-                <option selected disabled>Open this select menu</option>
+                <option selected disabled>Selecciona un archivo</option>
                 {{#each archivoJson}}
                 <option value="{{this.id}}">{{this.nombre}}</option>
                 {{/each}}

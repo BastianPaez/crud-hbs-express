@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { writeFile, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 
 const router = Router();
 
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
         archivoJson = JSON.parse(await readFile('./data/lista.json', 'utf-8'));
     } catch {
     }
-    const archivo = archivoJson.find( item => item.id === parseInt(archivoSeleccionado) )
+    const archivo = archivoJson.find( item => item.id === archivoSeleccionado )
     
     res.render('read', {archivoJson, archivo})
 })

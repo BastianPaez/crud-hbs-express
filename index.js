@@ -4,6 +4,7 @@ import path, { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import routerCreate from './routes/create.route.js';
 import routerRead from './routes/read.route.js';
+import routerUpdate from './routes/update.route.js';
 
 
 const app = express();
@@ -23,7 +24,7 @@ app.set('views',path.join(__dirname, '/views'));
 
 app.use('/create', routerCreate);
 app.use('/read', routerRead);
-
+app.use('/update', routerUpdate);
 
 app.get('/update', (req, res) => {
     res.render('update');
