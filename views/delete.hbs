@@ -1,20 +1,23 @@
 <section class="d-flex">
-    <article class="col-6 my-5">
-        <form action="">
+    <article class="my-5 col-6">
+        <form action="/delete" method="POST">
             <label class="form-label">Nombre del archivo</label>
-            <select class="form-select w-75" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select w-75" aria-label="Default select example" name="nombreArchivo">
+                <option selected disabled>Selecciona un archivo</option>
+                {{#each archivoJson}}
+                <option value="{{this.id}}">{{this.nombre}}</option>
+                {{/each}}
             </select>
-            <button class="btn btn-danger mt-3">Eliminar archivo</button>
+            <button class="btn btn-danger mt-3" type="submit">Eliminar archivo</button>
         </form>
     </article>
 
-    <article class="col-6">
+    <article class="col-6 mt-5">
+        <h2>Lista de archivos</h2>
         <ul>
-            <li>xdxd.txt</li>
+            {{#each archivoJson}}
+                <li>{{this.nombre}}</li>
+            {{/each}}
         </ul>
     </article>
 </section>

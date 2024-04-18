@@ -1,0 +1,7 @@
+<h1 class="text-center">CRUD</h1>
+<h2>Lista de archivos</h2>
+<ul>
+    {{#each archivoJson}}
+    <li value="{{this.id}}">{{this.nombre}}</li>
+    {{/each}}
+</ul>

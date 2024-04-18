@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url';
 import routerCreate from './routes/create.route.js';
 import routerRead from './routes/read.route.js';
 import routerUpdate from './routes/update.route.js';
-
+import routerDelete from './routes/delete.route.js';
+import routerHome from './routes/home.route.js';
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -22,17 +23,11 @@ app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views',path.join(__dirname, '/views'));
 
+app.use('/', routerHome);
 app.use('/create', routerCreate);
 app.use('/read', routerRead);
 app.use('/update', routerUpdate);
-
-app.get('/update', (req, res) => {
-    res.render('update');
-});
-
-app.get('/delete', (req, res) => {
-    res.render('delete');
-});
+app.use('/delete', routerDelete);
 
 
 app.listen(3000, ()=>{
